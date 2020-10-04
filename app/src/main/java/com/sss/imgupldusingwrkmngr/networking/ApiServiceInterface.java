@@ -15,6 +15,6 @@ import retrofit2.http.Url;
 public interface ApiServiceInterface {
 
     @Multipart
-    @POST("index.php")
+    @POST("media.php")
     Call<PostResponse> postData(@Part MultipartBody.Part file, @Part("name") RequestBody name);
 }

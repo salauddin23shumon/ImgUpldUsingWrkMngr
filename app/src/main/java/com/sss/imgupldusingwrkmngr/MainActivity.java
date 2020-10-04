@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.jediburrell.customfab.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import com.sss.imgupldusingwrkmngr.util.UploadWorkManager;
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private Button upload;
     private String imagePathUri;
     private ImageView imageView;
+    private FloatingActionButton fab;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         pickpicture = (Button) findViewById(R.id.pickpicture);
         imageView = findViewById(R.id.imageView);
         upload = (Button) findViewById(R.id.upload);
+        fab =  findViewById(R.id.floating_action_button);
 
         chkStoragePermission(this);
 
@@ -71,11 +76,18 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setImageResource(0);
             }
         });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+            }
+        });
     }
 
     private void choseFile() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
+        intent.setType("video/*");
         startActivityForResult(Intent.createChooser(intent, "Select Image From Gallery"), PHOTO_PICK_RQST);
     }
 
