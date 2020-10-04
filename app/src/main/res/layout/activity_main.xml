@@ -42,4 +42,17 @@
             android:textSize="19sp"
             android:layout_marginTop="10dp"/>
     </LinearLayout>
+
+    <com.jediburrell.customfab.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:fabType="custom"
+        app:fabColor="#00BCD4"
+        app:fabShape="@drawable/fab_shape"
+        app:fabIcon="@drawable/ic_next" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
